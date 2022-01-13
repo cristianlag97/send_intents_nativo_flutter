@@ -63,7 +63,7 @@ class HomeState extends State<HomeScreen> {
     36
   ];
   var defaultInstalment = "";
-  String merchantCode = "cristian7ouu";
+  String merchantCode = "prueba";
   String valor = "";
   bool bandera = false;
 
