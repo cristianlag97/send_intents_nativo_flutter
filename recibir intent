@@ -1,0 +1,107 @@
+
+
+
+const platform = const MethodChannel('app.channel.shared.data');
+  var sharedData = await platform.invokeMethod("getSharedText");
+
+
+
+
+
+
+//TODO: intents
+  static const platform = const MethodChannel('app.channel.shared.data'); 
+/*Future<void> _pruebo()async {
+    var sharedData = await platform.invokeMethod("getSharedText");
+    print(sharedData);
+    if(sharedData != null) {
+      getSharedText(sharedData);
+    } else {
+      _validateRegister();
+    }
+  }*/
+
+  /*getSharedText(dynamic sharedData) async {
+      //dataShared = sharedData;
+    List<String> result = sharedData.split(',');
+
+    print(sharedData[1]);
+    print(result);
+    jsonParsed = result;
+    var now = new DateTime.now();
+    String date = now.toString().substring(0, 10);
+    List<String> listCyclos = [];
+
+      merchantCode = jsonParsed[0];
+      valor = jsonParsed[1];
+      tipoTarjeta = jsonParsed[2];
+      resultTarjeta = jsonParsed[3];
+      //dataShared = sharedData.toString();
+      //setState(() {
+      //});
+      if(tipoTarjeta ==  "Tarjeta Débito") {
+        var payment = PaymentDTO();
+        payment.total = valor;
+        payment.monto = valor;
+        payment.propina = '';
+        payment.iva = '';
+        payment.iac = '';
+        payment.taxType = '';
+        payment.transactionType = 1;
+        payment.fromAccountType = resultTarjeta == 'Ahorros'? 1: 2;
+        payment.instalment = resultTarjeta;
+        payment.merchantCode = widget.loginData.merchantCode;
+        payment.versionApp = widget.loginData.versionApp.toString();
+        print(" ===========================> ${widget.loginData.merchantCode}");
+
+        MovementsRequest(widget.loginData, date, listCyclos).then( (dataMovements) {
+          fetchTransactionDetail(widget.loginData, "TODAY").then((dataTransactions) {
+            navigatorBarData = NavigatorBarDataDTO();
+            navigatorBarData.dataMovements = dataMovements!;
+            navigatorBarData.loginData = widget.loginData;
+            navigatorBarData.transactionDetail = dataTransactions;
+            navigatorBarData.indexPage = 0;
+
+            _goToCardPaymentPage(context, widget.loginData, payment, navigatorBarData);
+          });
+        });
+
+      } else {
+        var payment = PaymentDTO();
+        payment.total = valor;
+        payment.monto = valor;
+        payment.propina = '';
+        payment.iva = '';
+        payment.iac = '';
+        payment.taxType = '';
+        payment.transactionType = 1;
+        payment.fromAccountType = 3;
+        payment.instalment = resultTarjeta;
+        payment.merchantCode = widget.loginData.merchantCode;
+        payment.versionApp = widget.loginData.versionApp.toString();
+
+        MovementsRequest(widget.loginData, date, listCyclos).then( (dataMovements) {
+          fetchTransactionDetail(widget.loginData, "TODAY").then((dataTransactions) {
+            navigatorBarData = NavigatorBarDataDTO();
+            navigatorBarData.dataMovements = dataMovements!;
+            navigatorBarData.loginData = widget.loginData;
+            navigatorBarData.transactionDetail = dataTransactions;
+            navigatorBarData.indexPage = 3;
+
+            _goToCardPaymentPage(context, widget.loginData, payment, navigatorBarData);
+          });
+        });
+      }
+  }*/
+
+  /*void _goToCardPaymentPage(BuildContext context, LoginData loginData,
+      PaymentDTO payment, NavigatorBarDataDTO navigatorBarData) {
+    if (Platform.isIOS) {
+      Navigator.of(context).push(CupertinoPageRoute(
+          builder: (context) =>
+              CardPaymentPage(loginData, payment, null, navigatorBarData, true)));
+    }
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) =>
+            CardPaymentPage(loginData, payment, null, navigatorBarData, true)));
+  }*/
